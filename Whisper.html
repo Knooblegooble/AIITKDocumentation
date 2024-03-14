@@ -24,7 +24,7 @@
 
 <body id="page-top">
     <div id="wrapper" style="overflow: visible;">
-        <div id="navbar-wrapper">
+        <div id="navbar-wrapper" style="position: sticky;">
             <nav class="navbar navbar-expand fixed-top accordion bg-gradient-primary p-0 navbar-dark" data-bs-spy="scroll" style="font-family: Abel, sans-serif;background: linear-gradient(black 54%, white 93%);position: sticky;display: flex;max-width: 130px;min-width: 130px;">
                 <div class="container-fluid d-flex flex-column p-0"><a href="index.html"><img class="rounded d-flex align-items-xl-center" src="assets/img/V2LogoFinal.png" width="100" height="100" style="border:4px ridge #5e5e5e;margin:24px;"></a>
                     <div class="col-xl-11" style="margin: 12px;margin-bottom: 844px;">
@@ -86,68 +86,58 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-                    <h1 class="text-dark mb-1" id="Getting-Started">Getting Started</h1>
-                    <h4 class="text-start">This page shows how to get started using AIITK. It covers the basics of implementing AIITK in your projects, finding blueprint usage examples, and understanding the core features.</h4>
-                    <h3 class="text-dark mb-1" id="How-To-Find-Examples" style="padding-top: 42px;">HOW TO FIND BLUEPRINT USAGE EXAMPLES</h3>
-                    <section class="me-auto photo-gallery py-4 py-xl-5" style="max-width: 580px;margin-top: -27px;">
-                        <div class="container-fluid p-0">
-                            <div class="row gx-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col item"><a href="assets/img/clipboard-image-6.png"><img class="img-fluid" src="assets/img/clipboard-image-6.png" style="margin:5px;"></a><a href="assets/img/clipboard-image-3.png"><img class="img-fluid" src="assets/img/clipboard-image-3.png" style="margin:5px;"></a></div>
-                                <div class="col"><a href="assets/img/clipboard-image-5.png"><img class="img-fluid" src="assets/img/clipboard-image-5.png" style="margin:5px;"></a><a href="assets/img/clipboard-image-4.png"><img class="img-fluid" src="assets/img/clipboard-image-4.png" style="margin:5px;"></a></div>
+                    <h1 class="text-dark mb-1" id="Whisper">Whisper</h1>
+                    <h4 class="text-start" style="padding-bottom: 44px;">Whisper is designed to transcribe spoken words into text. This API is particularly useful for converting voice recorded at runtime into text to be sent to ChatGPT.</h4>
+                    <ul class="font-monospace text-dark" id="WhisperParams" style="background:var(--bs-secondary-bg);border-radius:16px;border-width:5px;border-style:double;padding:33px;padding-top:13px;max-width:800px;">
+                        <li><span style="color:rgb(0, 0, 0);">WhisperParams</span>
+                            <ul>
+                                <li><span style="color:rgb(0, 89, 202);">APIKey</span>: Key for OpenAI API authentication. Set this in the project settings.</li>
+                                <li><span style="color:rgb(0, 89, 202);">FilePath</span>: The path where the audio file is located, relative to the project directory. Format example: "YourProjDir/Sounds/YouVoice.wav".</li>
+                                <li><span style="color:rgb(0, 89, 202);">ResponseFormat</span>: The format of the transcript output. Possible values include json, text, srt, verbose_json, or vtt. Defaults to json if not specified.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Model</span>: ID of the model to use for transcription. Currently, only "whisper-1" is available.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Endpoint</span>: Specifies the action to be performed. In this case, "Transcription" indicates that the audio file will be transcribed.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Language</span>: The language of the input audio in ISO-639-1 format. Providing the input language can improve accuracy and latency. This parameter is optional.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Prompt</span>: An optional text input to guide the model's style or to continue a previous audio segment. The prompt should match the language of the audio.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Temperature</span>: A value between 0 and 1 that sets the sampling temperature. Higher values make the output more random, while lower values result in more focused and deterministic output. Defaults to 0, which lets the model automatically increase the temperature based on log probability thresholds.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3 class="text-dark" id="Voice-Transcription" style="margin-bottom: 20px;margin-top: 42px;">Voice Transcription</h3>
+                    <h5 class="text-primary">RequestWhisperTranscript/SendRequestToWhisper (AIITKComponentBP)</h5>
+                    <p>The <em>RequestWhisperTranscript </em>function takes a given .wav file and sends it to the Whisper API to transcribe into text.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-44.png"><img class="img-fluid" src="assets/img/clipboard-image-44.png" width="478" height="262" style="padding: 6px;"></a><a href="assets/img/clipboard-image-45.png"><img class="img-fluid" src="assets/img/clipboard-image-45.png" width="478" height="262" style="padding: 6px;"></a></div>
                             </div>
                         </div>
                     </section>
-                    <p class="text-start">To find examples packaged with the plugin please enable plugin AND engine content to be shown in the content browser. Additional examples can be found in Discord: <a href="https://discord.gg/xfmJ6zPEwT">AIITKSupport Discord Server</a></p>
-                    <section class="photo-gallery py-4 py-xl-5">
+                    <h3 class="text-dark" id="RecordingAudio" style="margin-bottom: 20px;margin-top: 42px;">Recording/Saving Audio</h3>
+                    <p>To send the audio to get transcribed you first need a way to record the audio. These are the functions you will need to save your voice (or whatever you want) to the disk. I would recommend using the functions in AIITKComponentBP to start and stop audio capture for quick integration. AIITK utilizes the default Audio Capture plugin that’s now included with recent versions of Unreal. You can learn more about that here: <a href="https://docs.unrealengine.com/5.3/en-US/overview-of-submixes-in-unreal-engine/">Submix Overview</a></p>
+                    <p><strong>*With StopAudioCaptureAndSave you only need to supply a filename, the default WAVFilePath output is YourBaseDirectory/Sounds/YourFileName.wav</strong></p>
+                    <section class="photo-gallery py-4 py-xl-5" style="max-width: 700px;margin-top: -17px;">
                         <div class="container-fluid p-0">
-                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col item"><a href="assets/img/clipboard-image-2.png"><img class="img-fluid" src="assets/img/clipboard-image-2.png"></a></div>
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-47.png"><img class="img-fluid" src="assets/img/clipboard-image-47.png" style="padding: 5px;min-width: 450px;"></a><a href="assets/img/clipboard-image-46.png"><img class="img-fluid" src="assets/img/clipboard-image-46.png" style="padding: 5px;"></a></div>
                             </div>
                         </div>
                     </section>
-                    <h3 class="text-dark" id="AIITKComponentBP" style="margin-bottom:20px;margin-top:42px;">AIITKComponentBP</h3>
-                    <p>The AIITKComponentBP is a subclass of AIITKComponent intended for use in Blueprints. This is meant to handle hooking into the generation response delegates automatically and providing events that fire with the relevant response information/content. With this you can attach AIITK functions to any actor in the game world. You are not required to use this component to access the plugin’s functions. If you would rather bind to the response delegate directly or create your own AIITKComponent subclass you can do so.</p>
-                    <section class="photo-gallery py-4 py-xl-5">
+                    <p style="margin-bottom: 1px;">TheAIITKComponentBP uses RecordingSubmix by default. This submix essentially mutes the game audio and only allows the default recording device input (typically the same as your Windows default) to be heard on this track.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="max-width: 700px;">
                         <div class="container-fluid p-0">
-                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col-md-3 col-xl-2 item"><a href="assets/img/clipboard-image-7.png"><img class="img-fluid" src="assets/img/clipboard-image-7.png" width="183" height="509" style="padding: 8px;"></a></div>
-                                <div class="col-xl-4 item"><a href="assets/img/clipboard-image-9.png"><img class="img-fluid" src="assets/img/clipboard-image-9.png" width="207" height="247" style="padding: 7px;"></a><a href="assets/img/clipboard-image-8.png"><img class="img-fluid" src="assets/img/clipboard-image-8.png" width="319" height="192" style="margin-top: 2px;padding: 8px;"></a></div>
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-48.png"><img class="img-fluid" src="assets/img/clipboard-image-48.png" style="padding: 5px;min-width: 450px;"></a></div>
                             </div>
                         </div>
                     </section>
-                    <h3 class="text-dark" id="SendingARequest" style="margin-top:42px;">Sending a Request</h3>
-                    <p>After adding the AIITKComponentBP to your actor you will find generation requests in the drop down within the context of the component. Use the AIITK group if you would rather handle the response delegates manually.</p>
-                    <section class="photo-gallery py-4 py-xl-5" style="margin-top:-35px;padding-bottom:38px;padding-top:66px;margin-bottom:-16px;margin-right:0px;padding-right:1px;">
+                    <p style="margin-bottom: 1px;">Recording audio is mostly the same process as you would find with the Audio Capture plugin as it relies on it. You will find a WhisperAudioCaptureComponent subclass that clears up some naming confusion and allows you to easily set the desired submix if you need an alternative recording method.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="max-width: 700px;">
                         <div class="container-fluid p-0">
-                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col-auto col-xl-3 item" style="padding-right: 0px;padding-top: 10px;"><a href="assets/img/clipboard-image-11.png"><img class="img-fluid" src="assets/img/clipboard-image-11.png" width="304" height="174" style="padding: 8px;"></a></div>
-                                <div class="col-auto col-xl-5 item" style="padding-right: 0px;padding-top: 9px;padding-left: 8px;"><a href="assets/img/clipboard-image-10.png"><img class="img-fluid" src="assets/img/clipboard-image-10.png" width="398" height="174"></a></div>
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-49.png"><img class="img-fluid" src="assets/img/clipboard-image-49.png" style="padding: 5px;min-width: 586px;"></a></div>
                             </div>
                         </div>
                     </section>
-                    <h3 class="text-dark" id="Parameters" style="margin-top:42px;">Parameters</h3>
-                    <p>You will find structs relating to the request parameters for each service.</p>
-                    <section class="photo-gallery py-4 py-xl-5" style="padding-top:0px;margin-bottom:-32px;margin-top:-35px;">
-                        <div class="container-fluid p-0">
-                            <div class="row gx-1 photos" data-bss-baguettebox="">
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-13.png"><img class="img-fluid" src="assets/img/clipboard-image-13.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-12.png"><img class="img-fluid" src="assets/img/clipboard-image-12.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-14.png"><img class="img-fluid" src="assets/img/clipboard-image-14.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-15.png"><img class="img-fluid" src="assets/img/clipboard-image-15.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-16.png"><img class="img-fluid" src="assets/img/clipboard-image-16.png"></a></div>
-                            </div>
-                        </div>
-                    </section>
-                    <p style="padding-bottom: 19px;padding-top: 17px;">I would recommend promoting the request params struct to a variable for easier readability and control.</p>
-                    <section class="photo-gallery py-4 py-xl-5" style="padding-top:0px;margin-bottom:-32px;margin-top:-48px;">
-                        <div class="container-fluid p-0">
-                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col-xl-4 item"><a href="assets/img/clipboard-image-17.png"><img class="img-fluid" src="assets/img/clipboard-image-17.png"></a></div>
-                            </div>
-                        </div>
-                    </section>
-                    <p style="padding-top: 30px;">For a comprehensive list of the proper usage of the request parameters please refer to the respective official documentation:</p><a href="https://platform.openai.com/docs/api-reference/introduction" target="_blank">https://platform.openai.com/docs/api-reference/introduction</a>
-                    <div></div><a href="https://elevenlabs.io/docs/speech-synthesis/overview" target="_blank">https://elevenlabs.io/docs/speech-synthesis/overview</a>
                 </div>
             </div>
             <footer class="font-monospace bg-white sticky-footer" style="margin-top: 61px;">

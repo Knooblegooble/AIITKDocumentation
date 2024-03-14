@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blank Page - AI Integration Toolkit</title>
+    <meta name="description" content="Documentation for the AI Integration Toolkit for Unreal Engine.">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Animated-Type-Heading.css">
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery-No-Gutters-baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Search-Form-.css">
+    <link rel="stylesheet" href="assets/css/Search-Input-responsive.css">
+    <link rel="stylesheet" href="assets/css/Treeview1.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper" style="overflow: visible;">
+        <div id="navbar-wrapper" style="position: sticky;">
+            <nav class="navbar navbar-expand fixed-top accordion bg-gradient-primary p-0 navbar-dark" data-bs-spy="scroll" style="font-family: Abel, sans-serif;background: linear-gradient(black 54%, white 93%);position: sticky;display: flex;max-width: 130px;min-width: 130px;">
+                <div class="container-fluid d-flex flex-column p-0"><a href="index.html"><img class="rounded d-flex align-items-xl-center" src="assets/img/V2LogoFinal.png" width="100" height="100" style="border:4px ridge #5e5e5e;margin:24px;"></a>
+                    <div class="col-xl-11" style="margin: 12px;margin-bottom: 844px;">
+                        <div class="vstack">
+                            <div><a class="btn btn-sm text-uppercase d-flex justify-content-center" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#collapse-1" role="button">Introduction</a>
+                                <div class="collapse" id="collapse-1">
+                                    <div class="vstack text-center"><a href="Index.html#Introduction">Introduction</a><a href="Index.html#Philosophy">Philosophy</a><a href="Index.html#MainClasses">Main Classes</a><a href="Index.html#AddingAPIKeys">Adding API keys</a><a href="Index.html#WhereToAPIKey">Where do I get my API keys?</a></div>
+                                </div>
+                            </div>
+                            <div><a class="btn btn-sm text-uppercase d-flex justify-content-center" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-2" href="#collapse-2" role="button">Getting Started</a>
+                                <div class="collapse" id="collapse-2">
+                                    <div class="vstack text-center"><a href="GettingStarted.html#GettingStarted">Getting Started</a><a href="GettingStarted.html#How-To-Find-Examples">Find Examples</a><a href="GettingStarted.html#AIITKComponentBP">AIITKComponentBP</a><a href="GettingStarted.html#SendingARequest">Sending A Request</a><a href="GettingStarted.html#Parameters">Parameters</a></div>
+                                </div>
+                            </div>
+                            <div><a class="btn btn-sm text-uppercase d-flex justify-content-center" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-3" href="#collapse-3" role="button">ChatGPT</a>
+                                <div class="collapse" id="collapse-3">
+                                    <div class="vstack text-center"><a href="ChatGPT.html#ChatGPT">ChatGPT</a><a href="ChatGPT.html#GPTParams">GPT Params</a><a href="ChatGPT.html#TextGeneration">Text Generation</a><a href="ChatGPT.html#HandlingResponses">Handle Responses</a><a href="ChatGPT.html#GPTFunctions">GPT Functions</a><a href="ChatGPT.html#ParsingFunctions">Parsing Functions</a></div>
+                                </div>
+                            </div>
+                            <div><a class="btn btn-sm text-uppercase d-flex justify-content-center" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button">DallE</a>
+                                <div class="collapse" id="collapse-7">
+                                    <div class="vstack text-center"><a href="DallE.html#DallE">DallE</a><a href="DallE.html#DallEParams">DallE Params</a><a href="DallE.html#ImageGeneration">Image Generation</a><a href="DallE.html#DallEResponses">DallE Responses</a></div>
+                                </div>
+                            </div>
+                            <div><a class="btn btn-sm text-uppercase d-flex justify-content-center" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-6" href="#collapse-6" role="button">Whisper</a>
+                                <div class="collapse" id="collapse-6">
+                                    <div class="vstack text-center"><a href="Whisper.html#Whisper">Whisper</a><a href="Whisper.html#WhisperParams">Whisper Params</a><a href="Whisper.html#Voice-Transcription">Voice Transcription</a><a href="Whisper.html#RecordingAudio">Recording Voice</a></div>
+                                </div>
+                            </div>
+                            <div><a class="btn btn-sm text-uppercase d-flex justify-content-center" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" href="#collapse-5" role="button">Text To Speech</a>
+                                <div class="collapse" id="collapse-5">
+                                    <div class="vstack text-center"><a href="TextToSpeech.html#TTS">Text To Speech</a><a href="TextToSpeech.html#OAITTSParams">OpenAITTS Params</a><a href="TextToSpeech.html#ElevenLabsParams">11Labs Params</a><a href="TextToSpeech.html#VoiceGeneration">Voice Generation</a><a href="TextToSpeech.html#TTSResponses">TTS Responses</a><a href="TextToSpeech.html#TTSExperiment">Experimental</a></div>
+                                </div>
+                            </div>
+                            <div><a class="btn btn-sm text-uppercase d-flex justify-content-center" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button">FAQ</a>
+                                <div class="collapse" id="collapse-4">
+                                    <p>Coming Soon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid"><div class="caption v-middle text-center">
+  <h1 class="cd-headline clip">
+    <span class="blc">AIITK::</span>
+    <span class="cd-words-wrapper">
+      <b class="is-visible">Text Generation</b>
+      <b>Voice Transcription</b>
+      <b>Text-To-Speech</b>
+	  <b>Image Generation</b>
+
+    </span>
+  </h1>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+                    <h1 class="text-dark mb-1" id="TTS">Text-To-Speech</h1>
+                    <h4 class="text-start">A Text-To-Speech service is designed to convert text into spoken words. This is particularly useful for creating realistic voiceovers or spoken content from generated text from LLMs. AIITK provides access to two services for voice generation, OpenAITTS and ElevenLabs. AIITK's TTS functions can also be used for automating the generation of pre-made voice lines or manipulating the raw audio data for communication with&nbsp;</h4>
+                    <h3 class="text-dark" style="margin-bottom: 20px;margin-top: 42px;">OpenAITTS Parameters</h3>
+                    <ul class="font-monospace text-dark" id="OAITTSParams" style="background:var(--bs-secondary-bg);border-radius:16px;border-width:5px;border-style:double;padding:33px;padding-top:13px;max-width:800px;">
+                        <li><span style="color:rgb(0, 0, 0);">OpenAITTSParams</span>
+                            <ul>
+                                <li><span style="color:rgb(0, 89, 202);">Text Prompt</span>: The input text for the text-to-speech conversion.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Model</span>: The specific text-to-speech model being used.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Voice</span>: The selected voice for the text-to-speech output.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Response Format</span>: The audio format for the output file (e.g., PCM or MP3).</li>
+                                <li><span style="color:rgb(0, 89, 202);">Speed</span>: The playback speed of the generated audio.</li>
+                                <li><span style="color:rgb(0, 89, 202);">MP3 Convert Location</span>: The directory where the MP3 converted files will be stored.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Proc Audio Sample Rate</span>: The sample rate of the processed audio in Hz.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3 class="text-dark" style="margin-bottom: 20px;margin-top: 42px;">ElevenLabs Parameters</h3>
+                    <ul class="font-monospace text-dark" id="ElevenLabsParams" style="background:var(--bs-secondary-bg);border-radius:16px;border-width:5px;border-style:double;padding:33px;padding-top:13px;max-width:800px;">
+                        <li><span style="color:rgb(0, 0, 0);">ElevenLabsParams</span>
+                            <ul>
+                                <li><span style="color:rgb(0, 89, 202);">11LabsRequiredParams</span>
+                                    <ul>
+                                        <li><span style="color:rgb(0, 89, 202);">APIKey</span>: Your unique API key for accessing the service</li>
+                                        <li><span style="color:rgb(0, 89, 202);">FileName</span>: Disk location followed by file name for converting MP3 data to WAV for use in UE</li>
+                                        <li><span style="color:rgb(0, 89, 202);">VoiceModel</span>: Identifier for the voice model to be used</li>
+                                        <li><span style="color:rgb(0, 89, 202);">VoiceId</span>: Unique identifier for the specific voice</li>
+                                        <li><span style="color:rgb(0, 89, 202);">Endpoint</span>: Endpoint URL for the text-to-speech API</li>
+                                        <li><span style="color:rgb(0, 89, 202);">SpeechToSpeech</span>: Unreleased SpeechToSpeech generation alternative to TextToSpeech (EXPERIMENTAL)</li>
+                                        <li><span style="color:rgb(0, 89, 202);">STSFilePath</span>: Path of the file to be used for speech to speech requests (EXPERIMENTAL)</li>
+                                    </ul>
+                                </li>
+                                <li><span style="color:rgb(0, 89, 202);">11LabsStreamParams</span>
+                                    <ul>
+                                        <li><span style="color:rgb(0, 89, 202);">bStreamedResponse</span>: Enables or disables streaming of responses</li>
+                                        <li><span style="color:rgb(0, 89, 202);">OptimizeStreamingLatency</span>: Configures latency optimizations, affecting audio quality</li>
+                                        <li><span style="color:rgb(0, 89, 202);">OutputFormat</span>: Select the audio output format</li>
+                                        <li><span style="color:rgb(0, 89, 202);">ChunkLengthSchedule</span>: Determines how text is chunked for processing (WEBSOCKET REQUEST ONLY)</li>
+                                        <li><span style="color:rgb(0, 89, 202);">StreamingBufferThreshold</span>: Set to a factor of 2 to wait for the buffer of that size to fill before queuing the audio (WEBSOCKET REQUEST ONLY)</li>
+                                    </ul>
+                                </li>
+                                <li><span style="color:rgb(0, 89, 202);">11LabsRequestParams</span>
+                                    <ul>
+                                        <li><span style="color:rgb(0, 89, 202);">TextPrompt</span>: Text prompt for the voice generation</li>
+                                        <li><span style="color:rgb(0, 89, 202);">RequiredParams</span>: Required parameters for the request</li>
+                                        <li><span style="color:rgb(0, 89, 202);">StreamParams</span>: Parameters for stream handling</li>
+                                        <li><span style="color:rgb(0, 89, 202);">VoiceSettings</span>: Settings for voice modulation</li>
+                                    </ul>
+                                </li>
+                                <li><span style="color:rgb(0, 89, 202);">11LabsVoiceSettings</span>
+                                    <ul>
+                                        <li><span style="color:rgb(0, 89, 202);">Stability</span>: Adjusts the stability of voice generation, affecting the predictability and variability of output</li>
+                                        <li><span style="color:rgb(0, 89, 202);">SimilarityBoost</span>: Increases the likelihood of generating a voice similar to the target voice</li>
+                                        <li><span style="color:rgb(0, 89, 202);">Style</span>: Defines the stylistic aspects of voice generation, specific to V2+ models</li>
+                                        <li><span style="color:rgb(0, 89, 202);">UseSpeakerBoost</span>: Determines whether to enhance the speaker's distinct characteristics in the generated voice</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3 class="text-dark" id="VoiceGeneration" style="margin-bottom: 20px;margin-top: 42px;">Voice Generation</h3>
+                    <h5 class="text-primary">SendRequestToOpenAITTS</h5>
+                    <p>The&nbsp;<em>SendRequestToOpenAITTS</em>&nbsp;function takes a given text prompt and returns a sound wave that can be played in Unreal Engine. Raw audio data is also provided for saving generated voice directly to the disk or fed into audio utility functions for conversion/resampling/etc.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-50.png"><img class="img-fluid" src="assets/img/clipboard-image-50.png" width="478" height="262" style="padding: 6px;"></a><a href="assets/img/clipboard-image-51.png"><img class="img-fluid" src="assets/img/clipboard-image-51.png" width="478" height="262" style="padding: 6px;"></a></div>
+                            </div>
+                        </div>
+                    </section>
+                    <h5 class="text-primary">SendRequestToElevenLabs</h5>
+                    <p>The&nbsp;<em>SendRequestToElevenLabs</em>&nbsp;function takes a given text prompt and returns a sound wave that can be played in Unreal Engine. Raw audio data is also provided for saving generated voice directly to the disk or fed into audio utility functions for conversion/resampling/etc. <sub>(Huh... Deja Vu...)</sub></p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-56.png"><img class="img-fluid" src="assets/img/clipboard-image-56.png" width="478" height="262" style="padding: 6px;"></a><a href="assets/img/clipboard-image-57.png"><img class="img-fluid" src="assets/img/clipboard-image-57.png" width="478" height="262" style="padding: 6px;"></a></div>
+                            </div>
+                        </div>
+                    </section>
+                    <h3 class="text-dark" id="TTSResponses" style="margin-bottom: 20px;margin-top: 42px;">Handling TTS Responses</h3>
+                    <p>These are the events available to you when utilizing the <em>AIITKComponentBP</em> component (Otherwise you will have to bind to the response events manually).&nbsp;</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-52.png"><img class="img-fluid" src="assets/img/clipboard-image-52.png" width="478" height="262" style="padding: 6px;"></a></div>
+                            </div>
+                        </div>
+                    </section>
+                    <p>On the response events a USoundWave (USoundWaveProcedural for streamed audio) as well as the raw bytes in a uint8 TArray. This can be plugged into the AIITK Audio Processing Library utility functions for saving and conversion.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-53.png"><img class="img-fluid" src="assets/img/clipboard-image-53.png" width="478" height="262" style="padding: 6px;"></a></div>
+                            </div>
+                        </div>
+                    </section>
+                    <p>For consistency in a streamed response, assign the proc sound wave to an audio component and start playing on initialization so that it's ready for the audio stream. Stop the proc sound wave when the buffer is empty (OnAudioFinished) or if there is an error. <em>Not required because it should be garbage collected eventually but recommended for controlling memory allocation/usage.</em></p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-55.png"><img class="img-fluid" src="assets/img/clipboard-image-55.png" width="478" height="262" style="padding: 6px;"></a></div>
+                            </div>
+                        </div>
+                    </section>
+                    <h3 class="text-dark" id="TTSExperiment" style="margin-bottom: 20px;margin-top: 42px;">Experimental Features</h3>
+                    <p>11Labs Websocket Streaming, and Speech to Speech functionality is currently experimental. Speech to Speech doesn't have any documentation released yet. (Well, it was, but then they removed it? I had most of it complete before it was taken away and never spoken about again, weird, it's there for you to try anyway), and the Websocket endpoint is not reliable enough for a consistent audio stream.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-58.png"><img class="img-fluid" src="assets/img/clipboard-image-58.png" width="478" height="262" style="padding: 6px;"></a></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <footer class="font-monospace bg-white sticky-footer" style="margin-top: 61px;">
+                <div class="text-center my-auto copyright" style="padding-top: 0px;padding-bottom: 26px;"><span class="font-monospace" style="text-shadow: 22px 0px 0px rgb(255,15,0), 44px 0px rgb(255,92,0), 66px 0px rgb(255,214,0), 88px 0px rgb(0,255,25), 109px 0px rgb(0,148,255), 130px 0px rgb(112,0,255), 151px 0px rgb(255,0,199);margin-right: 160px;">EOF</span></div>
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright">
+                        <div class="vstack"><span>Copyright © Kaleb Knoettgen 2024</span><span class="text-muted" style="padding-top: 7px;">Updated March 14th, 2024</span></div>
+                    </div>
+                </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Animated-Type-Heading-type-headline.js"></script>
+    <script src="assets/js/Lightbox-Gallery-No-Gutters-baguetteBox.min.js"></script>
+    <script src="assets/js/Lightbox-Gallery-No-Gutters-Lightbox-Gallery.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/Treeview1-mdb.min.js"></script>
+    <script src="assets/js/Treeview1-theme.js"></script>
+    <script src="assets/js/Treeview1-treeview.js"></script>
+</body>
+
+</html>

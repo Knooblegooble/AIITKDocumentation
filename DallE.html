@@ -86,68 +86,62 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-                    <h1 class="text-dark mb-1" id="Getting-Started">Getting Started</h1>
-                    <h4 class="text-start">This page shows how to get started using AIITK. It covers the basics of implementing AIITK in your projects, finding blueprint usage examples, and understanding the core features.</h4>
-                    <h3 class="text-dark mb-1" id="How-To-Find-Examples" style="padding-top: 42px;">HOW TO FIND BLUEPRINT USAGE EXAMPLES</h3>
-                    <section class="me-auto photo-gallery py-4 py-xl-5" style="max-width: 580px;margin-top: -27px;">
-                        <div class="container-fluid p-0">
-                            <div class="row gx-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col item"><a href="assets/img/clipboard-image-6.png"><img class="img-fluid" src="assets/img/clipboard-image-6.png" style="margin:5px;"></a><a href="assets/img/clipboard-image-3.png"><img class="img-fluid" src="assets/img/clipboard-image-3.png" style="margin:5px;"></a></div>
-                                <div class="col"><a href="assets/img/clipboard-image-5.png"><img class="img-fluid" src="assets/img/clipboard-image-5.png" style="margin:5px;"></a><a href="assets/img/clipboard-image-4.png"><img class="img-fluid" src="assets/img/clipboard-image-4.png" style="margin:5px;"></a></div>
+                    <h1 class="text-dark mb-1" id="DallE">DallE</h1>
+                    <h4 class="text-start" style="padding-bottom: 44px;">DallE is the image generation service developed by OpenAI. AIITK gives you access to this API with the flexibility to request image generation services at runtime and convert it to an Unreal Engine usable texture for a wide variety of customization options, automation, or integrating responsive gameplay elements.</h4>
+                    <ul class="font-monospace text-dark" id="DallEParams" style="background:var(--bs-secondary-bg);border-radius:16px;border-width:5px;border-style:double;padding:33px;padding-top:13px;max-width:800px;">
+                        <li><span style="color:rgb(0, 0, 0);">DallEParams</span>
+                            <ul>
+                                <li><span style="color:rgb(0, 89, 202);">Request Type</span>: Type of request (Image/Variation/Edit).</li>
+                                <li><span style="color:rgb(0, 89, 202);">APIKey</span>: Key for OpenAI DALL-E API authentication. Set in Project settings.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Prompt</span>: Description or text prompt for image generation.</li>
+                                <li><span style="color:rgb(0, 89, 202);">NumberOfImages</span>: Number of images to generate. Default is 1.</li>
+                                <li><span style="color:rgb(0, 89, 202);">ImageSize</span>: Size of the generated image. Dall-e-2 supports 256x256, 512x512, and 1024x1024. Dall-e-3 supports 1024x1024, 1792x1024, and 1024x1792</li>
+                                <li><span style="color:rgb(0, 89, 202);">Encoding</span>: Format of the response (e.g., URL, Base64). Dall-e-3 only supports URL responses due to webp output. Dall-e-2 supports both methods.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Endpoint</span>: DALL-E API URL. Default: https://api.openai.com/v1/images/generations</li>
+                                <li><span style="color:rgb(0, 89, 202);">Model</span>: Name of the DALL-E model for image generation. "dall-e-2" or “dall-e-3”.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Quality</span>: Quality setting for image generation. Only ‘standard’ and ‘hd’ are supported at the moment.</li>
+                                <li><span style="color:rgb(0, 89, 202);">Timeout</span>: Time in seconds before the request times out. Default is 60 seconds and maxes out at 120 to avoid API errors.</li>
+                                <li><span style="color:rgb(0, 89, 202);">ImageToSend</span>: Optional parameter for sending an image for variation or edit requests. Input the file path for the image to send</li>
+                                <li><span style="color:rgb(0, 89, 202);">MaskToSend</span>: Optional parameter for sending a mask image for edit requests. Example masks can be found in: Plugins\AIIntegrationToolkit\Resources</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3 class="text-dark" id="ImageGeneration" style="margin-bottom: 20px;margin-top: 42px;">Image Generation</h3>
+                    <h5 class="text-primary">SendDallEImageRequest/SendRequestToDallE (AIITKComponentBP)</h5>
+                    <p>The SendDallEImageRequest function is used to send a text prompt to the Dall-E API, which generates an image based on the provided description. This function is particularly useful when you need the AI model to create unique and contextually relevant images for your game.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -11px;margin-top: -16px;">
+                        <div class="container-fluid p-0" style="margin-right: 0px;">
+                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-39.png"><img class="img-fluid" src="assets/img/clipboard-image-39.png" width="478" height="262" style="padding: 6px;"></a><a href="assets/img/clipboard-image-40.png"><img class="img-fluid" src="assets/img/clipboard-image-40.png" width="478" height="262" style="padding: 6px;"></a></div>
                             </div>
                         </div>
                     </section>
-                    <p class="text-start">To find examples packaged with the plugin please enable plugin AND engine content to be shown in the content browser. Additional examples can be found in Discord: <a href="https://discord.gg/xfmJ6zPEwT">AIITKSupport Discord Server</a></p>
-                    <section class="photo-gallery py-4 py-xl-5">
+                    <h3 class="text-dark" id="DallEResponses" style="margin-bottom: 20px;margin-top: 42px;">Handling Responses From DallE</h3>
+                    <p>ImageURLs will either contain raw Base64 encoded image data or a URL for each image generated based on your selected encoding format. Set a texture parameter value for a dynamic material instance, save the image to the disk, etc, DownloadImageFromURL from the AIITK library outputs the downloaded image as a Texture2D object (You can use the native DownloadImage async node as well if you want, DownloadImageFromURL just gives an event to bind to).</p>
+                    <p><span style="color: rgb(0, 89, 202);">URL</span>: You can use the function Download Image From URL and hook up the “On image downloaded” delegate to an event. This is returned as a Texture2D object.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="max-width: 700px;margin-top: -17px;">
                         <div class="container-fluid p-0">
-                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col item"><a href="assets/img/clipboard-image-2.png"><img class="img-fluid" src="assets/img/clipboard-image-2.png"></a></div>
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-41.png"><img class="img-fluid" src="assets/img/clipboard-image-41.png" style="padding: 5px;"></a></div>
                             </div>
                         </div>
                     </section>
-                    <h3 class="text-dark" id="AIITKComponentBP" style="margin-bottom:20px;margin-top:42px;">AIITKComponentBP</h3>
-                    <p>The AIITKComponentBP is a subclass of AIITKComponent intended for use in Blueprints. This is meant to handle hooking into the generation response delegates automatically and providing events that fire with the relevant response information/content. With this you can attach AIITK functions to any actor in the game world. You are not required to use this component to access the plugin’s functions. If you would rather bind to the response delegate directly or create your own AIITKComponent subclass you can do so.</p>
-                    <section class="photo-gallery py-4 py-xl-5">
-                        <div class="container-fluid p-0">
-                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col-md-3 col-xl-2 item"><a href="assets/img/clipboard-image-7.png"><img class="img-fluid" src="assets/img/clipboard-image-7.png" width="183" height="509" style="padding: 8px;"></a></div>
-                                <div class="col-xl-4 item"><a href="assets/img/clipboard-image-9.png"><img class="img-fluid" src="assets/img/clipboard-image-9.png" width="207" height="247" style="padding: 7px;"></a><a href="assets/img/clipboard-image-8.png"><img class="img-fluid" src="assets/img/clipboard-image-8.png" width="319" height="192" style="margin-top: 2px;padding: 8px;"></a></div>
-                            </div>
-                        </div>
-                    </section>
-                    <h3 class="text-dark" id="SendingARequest" style="margin-top:42px;">Sending a Request</h3>
-                    <p>After adding the AIITKComponentBP to your actor you will find generation requests in the drop down within the context of the component. Use the AIITK group if you would rather handle the response delegates manually.</p>
-                    <section class="photo-gallery py-4 py-xl-5" style="margin-top:-35px;padding-bottom:38px;padding-top:66px;margin-bottom:-16px;margin-right:0px;padding-right:1px;">
-                        <div class="container-fluid p-0">
-                            <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col-auto col-xl-3 item" style="padding-right: 0px;padding-top: 10px;"><a href="assets/img/clipboard-image-11.png"><img class="img-fluid" src="assets/img/clipboard-image-11.png" width="304" height="174" style="padding: 8px;"></a></div>
-                                <div class="col-auto col-xl-5 item" style="padding-right: 0px;padding-top: 9px;padding-left: 8px;"><a href="assets/img/clipboard-image-10.png"><img class="img-fluid" src="assets/img/clipboard-image-10.png" width="398" height="174"></a></div>
-                            </div>
-                        </div>
-                    </section>
-                    <h3 class="text-dark" id="Parameters" style="margin-top:42px;">Parameters</h3>
-                    <p>You will find structs relating to the request parameters for each service.</p>
-                    <section class="photo-gallery py-4 py-xl-5" style="padding-top:0px;margin-bottom:-32px;margin-top:-35px;">
-                        <div class="container-fluid p-0">
-                            <div class="row gx-1 photos" data-bss-baguettebox="">
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-13.png"><img class="img-fluid" src="assets/img/clipboard-image-13.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-12.png"><img class="img-fluid" src="assets/img/clipboard-image-12.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-14.png"><img class="img-fluid" src="assets/img/clipboard-image-14.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-15.png"><img class="img-fluid" src="assets/img/clipboard-image-15.png"></a></div>
-                                <div class="col-auto col-xl-2 item"><a href="assets/img/clipboard-image-16.png"><img class="img-fluid" src="assets/img/clipboard-image-16.png"></a></div>
-                            </div>
-                        </div>
-                    </section>
-                    <p style="padding-bottom: 19px;padding-top: 17px;">I would recommend promoting the request params struct to a variable for easier readability and control.</p>
-                    <section class="photo-gallery py-4 py-xl-5" style="padding-top:0px;margin-bottom:-32px;margin-top:-48px;">
+                    <p><span style="color: rgb(0, 89, 202);">Base64</span>: You can use the functions ExtractBase64FromDataURL to get the image data from the response JSON and then convert that data with Base64ToTexture which effectively converts it into a texture Unreal Engine can use.</p>
+                    <section class="photo-gallery py-4 py-xl-5" style="margin-top: -35px;">
                         <div class="container-fluid p-0">
                             <div class="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                                <div class="col-xl-4 item"><a href="assets/img/clipboard-image-17.png"><img class="img-fluid" src="assets/img/clipboard-image-17.png"></a></div>
+                                <div class="col item"><a href="assets/img/clipboard-image-42.png"><img class="img-fluid" src="assets/img/clipboard-image-42.png" style="padding: 5px;min-width: 400px;"></a></div>
                             </div>
                         </div>
                     </section>
-                    <p style="padding-top: 30px;">For a comprehensive list of the proper usage of the request parameters please refer to the respective official documentation:</p><a href="https://platform.openai.com/docs/api-reference/introduction" target="_blank">https://platform.openai.com/docs/api-reference/introduction</a>
-                    <div></div><a href="https://elevenlabs.io/docs/speech-synthesis/overview" target="_blank">https://elevenlabs.io/docs/speech-synthesis/overview</a>
+                    <p><strong>*Use SaveTextureToDisk and supply a valid file path to save any texture to any desired location (as a png), not limited to DallE responses. Output bool set to true on successful save.</strong></p>
+                    <section class="photo-gallery py-4 py-xl-5" style="max-width: 700px;margin-top: -17px;">
+                        <div class="container-fluid p-0">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="" style="margin-top: -15px;">
+                                <div class="col-xl-6 item"><a href="assets/img/clipboard-image-43.png"><img class="img-fluid" src="assets/img/clipboard-image-43.png" style="padding: 5px;"></a></div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
             <footer class="font-monospace bg-white sticky-footer" style="margin-top: 61px;">
